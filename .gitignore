@@ -1,0 +1,5 @@
+*.zip
+auten.php
+.htaccess
+intranet/class/class.bd.php
+intranet/files
