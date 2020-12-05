@@ -1,16 +1,16 @@
 <?php class BD{
   
-  private $host='localhost:3308';
-	private $database='agronieto_bd';	 
-	private $user='root';
-	private $pass='';
+  // private $host='localhost:3308';
+	// private $database='agronieto_bd';	 
+	// private $user='root';
+	// private $pass='';
 
   
  
-  // private $host='localhost';
-	// private $database = 'tuweb7_agronieto';
-	// private $user = 'tuweb7_lds';
-	// private $pass = 'Mapa19%%%%';
+  private $host='localhost';
+	private $database = 'tuweb7_agronieto';
+	private $user = 'tuweb7_lds';
+	private $pass = 'Mapa19%%%%';
 
 
   
