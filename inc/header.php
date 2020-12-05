@@ -107,6 +107,15 @@ if(empty($_SESSION["suscritos"]["id_suscrito"])){ ?>
     <li class="aparecer" style="padding-right:18px;"><a href="cesta"><img src="img/iconos/cesta.png"><span class="em color-1 monto_total" style="font-size:16px;">(s/ 350)</span></a></li>   
 -->		
     <div class="float-right ocultar">
+			 <div class="large-12 columns anexo float-right">
+						<div id="search"><div class="well monset">
+							<form action="productos" method="post" enctype="multipart/form-data"><fieldset style="position:relative;">
+								<div class="abs"><button class="btn-default"><img src="img/iconos/lupa.svg"></button></div>
+								<input autocomplete="off" class="form-control" type="text" name="buscar" required placeholder="Buscar ..">
+							</fieldset></form>
+						</div></div>
+						<li class="sinn" ><a href=""><img src="img/iconos/tel2020.png" style="padding-right:7px;">945250434 | 945250434</a></li>            
+			</div>
       <nav  class="hide amatic bold"> 
         <ul class="no-bullet fullwidth">
 						<li class="<?php echo ("index"== $pagina)?'active-menu':''; ?>"><a href="<?php echo $url;?>">INICIO </a></li>  

@@ -154,7 +154,8 @@ iframe{ display:block; }
 .lleva_botones{margin:40px 0 30px;}
 .lleva_botones .btn{padding:12px 14px; max-width: 122px;;}
 
-
+.anexo{padding-top:10px;}
+.sinn{display:inline-block;line-height:40px;    vertical-align: text-bottom;}
 
 #videofondo,
 .lSSlideOuter,
@@ -176,6 +177,16 @@ iframe{ display:block; }
 
 
 
+
+
+#search input[type='text']::placeholder{color:#444;}
+#search {position: relative;max-width: 400px;margin-right:3px;margin-left: 10px;display: inline-block;}
+#search input[type='text']{font-size: 14px !important;margin: 0; width: 100%;border-radius:30px;height:33px;padding-left: 14px;padding-right: 35px;background: #f8f8f8;color: #1E3032;}
+#search .well{position:relative;}
+#search button {width: auto;background:transparent;padding:0 !important;margin:0 !important;cursor:pointer;}
+#search .abs{top: 3px;left: inherit;right: 0;padding: 1px 12px 4px;}
+#search img{height:15px;}
+#search form{display: inline-block;}
 
 
 
@@ -875,7 +886,7 @@ h3{font-size: 35px !important;line-height: 37px!important;}
 
 /* min widt*/
 @media only screen and (min-width:57.1em){
-nav.hide{ display:block !important;padding:20px 0 15px;}
+nav.hide{ display:block !important;padding:4px 0 15px;}
 /* nav > ul  li +li  {background:url(../img/iconos/flecha-left.png) left center  no-repeat;}  */
 nav > ul > li > a{ padding:5px 11px;}
 
