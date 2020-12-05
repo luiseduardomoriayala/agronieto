@@ -7,9 +7,11 @@ Options All -Indexes
 
   #RewriteRule ^(.*)$ https://www.naynut.com/$1 [R,L]
   
-  RewriteCond %{HTTP_HOST} ^naynut.com [NC]
-  RewriteRule ^ http://www.naynut.com%{REQUEST_URI} [L,R=301]
-  RewriteRule ^(es|en|it)/(.*)$  $2?lang=$1 [L,QSA]
+  #RewriteCond %{HTTP_HOST} ^naynut.com [NC]
+  #RewriteRule ^ http://www.naynut.com%{REQUEST_URI} [L,R=301]
+  
+	
+	RewriteRule ^(es|en|it)/(.*)$  $2?lang=$1 [L,QSA]
 
   RewriteCond %{REQUEST_FILENAME}\.php -f
   RewriteRule ^([^/]+)$ $1.php [NC]
