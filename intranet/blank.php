@@ -6,6 +6,8 @@ if(isset($_GET["page"]) && $_GET["page"]!=""){
       break;
     case "banners":
     case "productos":
+    case "categorias":
+    case "marcas":
     case "galeria_productos":
     case "pedidos":
     case "suscriptores":
@@ -20,19 +22,23 @@ if(isset($_GET["page"]) && $_GET["page"]!=""){
 }
 
 $tab=array(
-  "Contenido"=>array(
-     "banners"   => array(url=>"index.php?page=banners"),
-     "Publicaciones"   => array(url=>"index.php?page=novedades") 
+  "Banners"=>array(
+     "ver"   => array(url=>"index.php?page=banners")
+	), 
+	"Blog"=>array(
+     "ver"   => array(url=>"index.php?page=novedades") 
     ), 
   "Productos"=>array(
-       "ver"   => array(url=>"index.php?page=productos")
+       "Categorías"   => array(url=>"index.php?page=categorias"),
+       "Marcas"   => array(url=>"index.php?page=marcas"),
+       "productos"   => array(url=>"index.php?page=productos")
             ),
-  "Pedidos"=>array(
-       "Ver"   => array(url=>"index.php?page=pedidos")
-            ),
-  "Suscritos"=>array(
-       "Suscritos"   => array(url=>"index.php?page=suscriptores")
-            ),              
+  // "Pedidos"=>array(
+       // "Ver"   => array(url=>"index.php?page=pedidos")
+            // ),
+  // "Suscritos"=>array(
+       // "Suscritos"   => array(url=>"index.php?page=suscriptores")
+            // ),              
   "Sistema"=>array( "Usuarios"=>array(url=>"index.php?page=usuarios") )
 ); ?>
 <div class="wrapper">

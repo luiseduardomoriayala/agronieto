@@ -1,7 +1,7 @@
 <?php  include 'auten.php'; $pagina="contacto";
 $_SESSION["url"]=url_completa();
 $meta= array(
-'title' =>'Contacto / NAYNUT Naturalmente Nutritivo ',
+'title' =>'Contáctenos | Agroforestal Nieto ',
 'keywords' =>'',
 'description' =>''
 );
@@ -13,11 +13,12 @@ $meta= array(
 </div></div>
 <div class="callout callout-2 text-center"><div class="row">
   <div class="large-10 large-centered medium-10 medium-centered columns">
-    <p class="osans">Si desea obtener más información sobre nuestros productos, puede enviarnos un mensaje mediante nuestro formulario o mediante nuestros datos de contacto.</p>
+    <p class="osans">Si desea obtener más ventasrmación sobre nuestros productos, puede enviarnos un mensaje mediante nuestro formulario o mediante nuestros datos de contacto.</p>
     <div class="datos">
-     <p class="osans"><span><img src="img/iconos/tele-con.png"></span>Llámanos </br>945360531 </br></p>
-     <p class="osans"><a href="mailto:ventas@naynut.com"><span><img src="img/iconos/correo-con.png"></span>Envíenos un correo </br>info@naynut.com</a></p>
-    </div>
+     <p class="osans"><span><img src="img/iconos/tele-con.png"></span>Llámanos </br>51945250434 </br></p>
+     <p class="osans"><a href="mailto:ventas@agronieto.com"><span><img src="img/iconos/correo-con.png"></span>Envíenos un correo </br>ventas@agronieto.com</a></p>
+		 
+		</div>
   </div>
   <div class="large-8 medium-8 columns text-left">
     <h3 class="amatic bold color-1">Formulario de contacto:</h3>
@@ -52,7 +53,7 @@ $meta= array(
     </form>
   </div>
   <div class="large-4 medium-4 columns">
-    <div class="fb-page" data-href="https://www.facebook.com/Fruta-Deshidratada-Naynut-617127055308063/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Fruta-Deshidratada-Naynut-617127055308063/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Fruta-Deshidratada-Naynut-617127055308063/">Fruta Deshidratada - Naynut</a></blockquote></div>
+    <div class="fb-page" data-href="https://www.facebook.com/agroforestalnietoeirl//" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/agroforestalnietoeirl//" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/agroforestalnietoeirl//">Agroforestal Nieto </a></blockquote></div>
   </div>
 </div>
 </div>

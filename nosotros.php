@@ -1,6 +1,6 @@
 <?php include 'auten.php'; $pagina="nosotros";$_SESSION["url"]=url_completa();
 $meta= array(
-'title' =>'Nosotros - Naynut "Naturalmente nutritivo"',
+'title' =>'Nosotros | Agroforestal Nieto',
 'keywords' =>'',
 'description' =>''
 );
@@ -12,23 +12,20 @@ $notimg='img/notimg.jpg'; ?>
   <h5 class="amatic bold blanco text-center">Nosotros</h5>
 </div></div>
 <section class="callout callout-2 white"><div class="row">
-  <article class="large-4 madium-4 columns text-left">  
-    <p class="osans text-justify" style="padding-bottom:20px;"><span class="color-3 bold">Naynut,</span> <span class="color-1 bold">Naturalmente Nutritivo.</span> Somos una empresa peruana que ofrece productos de calidad, orientados a un estilo de alimentación saludable</p>  
-    <h3 CLASS="amatic bold color-1 bold">¿Por qué NayNut?</h3>
-    <p class="osans">Buscamos satisfacer a nuestros consumidores con productos Naturales y Nutritivos es de ahí que nace NayNut.</p>
+  <article class="large-7 madium-7 columns text-left">  
+    <p class="osans text-justify" style="padding-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet dignissim massa, sit amet ultrices dolor. Vivamus at neque quis ligula fringilla euismod id eget lorem. Nulla vitae fermentum leo</p>  
+    <h3 CLASS="amatic bold color-1 bold">¿Por qué AgroNieto?</h3>
+    <p class="osans">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet dignissim massa, sit amet ultrices dolor. Vivamus at neque quis ligula fringilla euismod id eget lorem. Nulla vitae fermentum leo, sit amet rutrum nisl. Morbi ac ex risus. Aenean non nunc odio. Nullam pharetra elit at metus laoreet vulputate. Aliquam eu magna vel odio condimentum gravida quis at lacus. Donec vestibulum at elit sed venenatis. Maecenas suscipit tellus in nisl auctor facilisis. Proin eget cursus tellus, eu gravida purus. Donec auctor diam vitae efficitur consectetur.</p>
+		
     <h3 CLASS="amatic bold color-1 bold">Nuestro producto</h3>
-    <p class="osans">NayNut ofrece una línea de fruta deshidratada a base de 100% fruta. Sin azucares añadidos y con el mismo beneficio de la fruta fresca. <strong>NayNut</strong></p>
+    <p class="osans">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet dignissim massa, sit amet ultrices dolor. Vivamus at neque quis ligula fringilla euismod id eget lorem. Nulla vitae fermentum leo, sit amet rutrum nisl. Morbi ac ex risus. Aenean non nunc odio. Nullam pharetra elit at metus laoreet vulputate. Aliquam eu magna vel odio condimentum gravida quis at lacus. Donec vestibulum at elit sed venenatis. Maecenas suscipit tellus in nisl auctor facilisis. Proin eget cursus tellus, eu gravida purus. Donec auctor diam vitae efficitur consectetur.
+
+</p>
   </article>
-  <article class="large-4 madium-4 columns text-center">  
+  <article class="large-5 madium-5 columns text-center">  
      <img src="img/fruta-deshidratada-natural.png" class="wow bounceInLeft">
   </article>
-  <article class="large-4 madium-4 columns text-left">  
-    <p class="osans text-justify" style="padding-bottom:20px;"><span class="color-3 bold">Naynut,</span> <span class="color-1 bold">Naturalmente Nutritivo.</span> Somos una empresa peruana que ofrece productos de calidad, orientados a un estilo de alimentación saludable</p>  
-    <h3 CLASS="amatic bold color-1 bold">¿Por qué NayNut?</h3>
-    <p class="osans">Buscamos satisfacer a nuestros consumidores con productos Naturales y Nutritivos es de ahí que nace NayNut.</p>
-    <h3 CLASS="amatic bold color-1 bold">Nuestro producto</h3>
-    <p class="osans">NayNut ofrece una línea de fruta deshidratada a base de 100% fruta. Sin azucares añadidos y con el mismo beneficio de la fruta fresca. <strong>NayNut</strong></p>
-  </article>
+  
 </div></section> 
 <section class="callout fondo callout-3"><div class="row"></div></section> 
 </main>

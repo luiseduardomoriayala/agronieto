@@ -4,12 +4,19 @@ include_once("intranet/class/functions.php");
 include_once("intranet/class/class.bd.php"); 
 include_once("intranet/class/PHPPaging.lib.php");
 $url_completa = url_completa();
-$url = 'http://'.$_SERVER['SERVER_NAME'].''.( ($_SERVER['SERVER_NAME'] == 'localhost') ? ':88/mori/tuweb7/w2018/naynut/' : '' ); 
+$url = 'https://'.$_SERVER['SERVER_NAME'].''.( ($_SERVER['SERVER_NAME'] == 'localhost') ? '/mori/tuweb7/w2020/agronieto/' : '/agronieto/' ); 
+
+$dir="intranet/files/images/productos/";
+$dir2="intranet/files/files/productos/";
 
 /*Whats - Llamar*/
+/*Whats - Llamar*/
+$num_cel='51945250434';
+$num_wsp='51945250434';
+
 $host3=$_SERVER["HTTP_HOST"];$url3=$_SERVER["REQUEST_URI"];
 $fin='http://'.$host3.$url3;
-$texinfo = 'Hola, me interesa este producto que vi en la web de Naynut.com. '.$fin;
+$texinfo = 'Hola, me interesa este producto que vi en la web de Agronieto.com. '.$fin;
 $texto_cambiado = str_replace(" ", "%20", $texinfo); 
 
 if(isset($_SESSION["suscritos"]["id_suscrito"]) && !empty($_SESSION["suscritos"]["id_suscrito"])){ //ide_suscrito	&& img_perfil

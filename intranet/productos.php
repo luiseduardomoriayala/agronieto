@@ -18,7 +18,7 @@ if($_GET["task"]=='neworden'){
   $urlrewrite=armarurlrewrite($_POST["titulo"]);
   $urlrewrite=armarurlrewrite($urlrewrite,1,"productos","id_producto","titulo_rewrite",$where);
   
-  $campos=array("titulo",array("titulo_rewrite",$urlrewrite),"stock","tipo","igv","precio","costo_promo","garantia","link","puntuales","especificaciones","detalle","estado_idestado");
+  $campos=array('idcat','id_marca',"titulo",array("titulo_rewrite",$urlrewrite),"stock","tipo","igv","precio","costo_promo","garantia","link","puntuales","especificaciones","detalle","estado_idestado");
   // if(isset($_POST['id_marca'])) $campos = array_merge($campos,array('id_marca'));
   $dir  = "files/images/productos/";
   $dir2 = "files/files/productos/";
@@ -29,6 +29,10 @@ if($_GET["task"]=='neworden'){
       $campos = array_merge($campos,array('imagen'));
     }   
 		$_POST["id_producto"]=$bd->inserta_(arma_insert('productos',array_merge($campos,array(array("orden",$norden))),'POST'));
+		
+		// echo var_dump(arma_insert('productos',array_merge($campos,array(array("orden",$norden))),'POST'));
+		// exit();
+		
 	}else{
     if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
       $path = $dir.$_POST['imagen_ant'];
@@ -75,6 +79,20 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
 					  <label for="inputEmail3" class="col-sm-2 control-label">Estado</label>
 					  <div class="col-sm-6">
 						<?php crearselect("estado_idestado","select * from estado where idestado in('1','2') order by 2 desc",'class="form-control"',$data_producto["estado_idestado"],""); ?>
+					  </div>
+					</div>
+					
+					<div class="form-group">
+					  <label for="inputEmail3" class="col-sm-2 control-label">Categoría</label>
+					  <div class="col-sm-6">
+						<?php crearselect("idcat","select idcat, nombre from categorias where estado_idestado=1 order by orden desc",'class="form-control"',$data_producto["idcat"]," -- seleccione --"); ?>
+					  </div>
+					</div>
+					
+					<div class="form-group">
+					  <label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
+					  <div class="col-sm-6">
+						<?php crearselect("id_marca","select id_marca, nombre from marcas where estado_idestado=1 order by orden desc",'class="form-control"',$data_producto["id_marca"]," -- seleccione --"); ?>
 					  </div>
 					</div>
 					<div class="form-group">
@@ -166,7 +184,7 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
               </div>
           </div>
           <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Beneficios:</label>
+              <label for="inputPassword3" class="col-sm-2 control-label">Equipamiento:</label>
               <div class="col-sm-8">
                 <?php create_input("textarea","detalle",$data_producto["detalle"],"",$table,$agregado);  ?>
                 <script>

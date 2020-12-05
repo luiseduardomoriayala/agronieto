@@ -4,33 +4,33 @@ if($_GET["task"]=='neworden'){
   $bd=new BD;
   $orden_actual=$_GET["orden"];
   $orden_nuevo=$_GET["nuevoorden"]; 
-  $id_del_registro_actual=$_GET["id_marca"];
+  $id_del_registro_actual=$_GET["idcat"];
   $criterio_Orden ="";
-  nuevoorden($orden_actual, $orden_nuevo, $id_del_registro_actual, "marcas", "id_marca", $criterio_Orden);    
+  nuevoorden($orden_actual, $orden_nuevo, $id_del_registro_actual, "categorias", "idcat", $criterio_Orden);    
   $bd->close();
 }elseif($_GET["task"]=='insert' || $_GET["task"]=='update'){
   $bd=new BD;
-  $where=($_GET["task"]=='update') ? " and id_marca!='".$_POST["id_marca"]."'" : "";
+  $where=($_GET["task"]=='update') ? " and idcat!='".$_POST["idcat"]."'" : "";
   $urlrewrite=armarurlrewrite($_POST["nombre"]);
-  $urlrewrite=armarurlrewrite($urlrewrite,1,"marcas","id_marca","nombre_rewrite",$where);
-  $norden=_orden_noticia("","marcas","");
+  $urlrewrite=armarurlrewrite($urlrewrite,1,"categorias","idcat","nombre_rewrite",$where);
+  $norden=_orden_noticia("","categorias","");
 	
-  $campos=array("nombre",array("nombre_rewrite",$urlrewrite),"estado_idestado");
+  $campos=array("nombre",array("nombre_rewrite",$urlrewrite),'destacado',"estado_idestado");
   if($_GET["task"]=='insert'){
     if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
-      $_POST['imagen']= carga_imagen('files/images/marcas/','imagen','');
+      $_POST['imagen']= carga_imagen('files/images/categorias/','imagen','');
       $campos=array_merge($campos,array('imagen'));
     }
     // $_POST['fecha_registro']=fecha_hora(2);
-    $_POST["id_marca"]=$bd-> inserta_(arma_insert('marcas',array_merge($campos,array(array("orden",$norden))),'POST'));    
+    $_POST["idcat"]=$bd-> inserta_(arma_insert('categorias',array_merge($campos,array(array("orden",$norden))),'POST'));    
   }else{
     if(isset($_FILES['imagen']) && !empty($_FILES['imagen']['name'])){
-      $path = 'files/images/marcas/'.$_POST['imagen_ant'];
+      $path = 'files/images/categorias/'.$_POST['imagen_ant'];
       if( file_exists($path) && !empty($_POST['imagen_ant']) ) unlink($path);    
-      $_POST['imagen'] = carga_imagen('files/images/marcas/','imagen','');
+      $_POST['imagen'] = carga_imagen('files/images/categorias/','imagen','');
       $campos = array_merge($campos,array('imagen'));
     }
-    $bd->actualiza_(armaupdate('marcas',array_merge($campos)," id_marca='".$_POST["id_marca"]."'",'POST'));/*actualizo*/
+    $bd->actualiza_(armaupdate('categorias',array_merge($campos)," idcat='".$_POST["idcat"]."'",'POST'));/*actualizo*/
   } 
   
   $bd->close();
@@ -38,7 +38,7 @@ if($_GET["task"]=='neworden'){
   
 }elseif($_GET["task"]=='new' || $_GET["task"]=='edit'){
   if($_GET["task"]=='edit'){
-			 $sql="select * from marcas where id_marca='".$_GET["id_marca"]."'";
+			echo $sql="select * from categorias where idcat='".$_GET["idcat"]."'";
    $usuario=executesql($sql,0);
   }
 ?>
@@ -49,9 +49,9 @@ if($_GET["task"]=='neworden'){
         <h3 class="box-title"><?php echo ($_GET["task"]=="edit") ? 'Editar' : 'Nueva'; ?> Marca</h3>
       </div>
 <?php $task_=$_GET["task"]; ?>
-      <form action="marcas.php?task=<?php echo ($task_=='edit') ?  "update" : "insert"; ?>" class="form-horizontal" method="POST" enctype="multipart/form-data" autocomplete="OFF" onsubmit="return aceptar()">
+      <form action="categorias.php?task=<?php echo ($task_=='edit') ?  "update" : "insert"; ?>" class="form-horizontal" method="POST" enctype="multipart/form-data" autocomplete="OFF" onsubmit="return aceptar()">
 <?php
-if($task_=='edit') create_input("hidden","id_marca",$usuario["id_marca"],"",$table,"");
+if($task_=='edit') create_input("hidden","idcat",$usuario["idcat"],"",$table,"");
 create_input("hidden","urlfailed",basename($_SERVER['REQUEST_URI']),"",$table,"");  
 create_input("hidden","urlgo",$link2,"",$table,"");
 create_input("hidden","nompage",$_GET["page"],"",$table,""); 
@@ -71,7 +71,6 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
             <?php create_input("text","nombre",$usuario["nombre"],"form-control",$table,"required",$agregado); ?>
           </div>
         </div>
-<?php /*
         
 				<div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Categoria Destacada? <?php // echo $usuario["nombre"].'-'.$usuario['destacado']; ?></label>
@@ -84,6 +83,7 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
             </div>
 					</div>
 					
+<?php /*
         <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Imágen</label>
               <div class="col-sm-3">
@@ -91,7 +91,7 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
                 <?php create_input("hidden","imagen_ant",$usuario["imagen"],"",$table,$agregado); 
                   if($usuario["imagen"]!=""){ 
                 ?>
-                  <img style="height:70px;" src="<?php echo "files/images/marcas/".$usuario["imagen"]; ?>" width="200" class="mgt15">
+                  <img style="height:70px;" src="<?php echo "files/images/categorias/".$usuario["imagen"]; ?>" width="200" class="mgt15">
                 <?php } ?> 
               </div>
         </div> 
@@ -128,14 +128,14 @@ function aceptar(){
 }elseif($_GET["task"]=='drop' || $_GET["task"]=='dropselect'){
   if($_SESSION["visualiza"]["idtipo_usu"]==1){      $bd = new BD;
     $bd->Begin();
-    $ide = !isset($_GET['id_marca']) ? implode(',', $_GET['chkDel']) : $_GET['id_marca'];
-    // $publicacion = executesql("SELECT * FROM marcas WHERE id_marca IN(".$ide.")");
+    $ide = !isset($_GET['idcat']) ? implode(',', $_GET['chkDel']) : $_GET['idcat'];
+    // $publicacion = executesql("SELECT * FROM categorias WHERE idcat IN(".$ide.")");
     // if(!empty($publicacion)){
       // foreach($publicacion as $row){
       // linkde img
       // }
     // } 
-    // $bd->actualiza_("DELETE FROM table WHERE id_marca IN(".$ide.")");
+    // $bd->actualiza_("DELETE FROM table WHERE idcat IN(".$ide.")");
     $bd->Commit();
     $bd->close();  }
 }elseif($_GET["task"]=='ordenar'){
@@ -143,15 +143,15 @@ function aceptar(){
   $_GET['order'] = array_reverse($_GET['order']);
   foreach ($_GET['order'] as $order => $item) {
     $orden = $orden + 1;
-    $num_afect=$bd->actualiza_("UPDATE marcas SET orden= ".$orden." WHERE id_marca = ".$item."");
+    $num_afect=$bd->actualiza_("UPDATE categorias SET orden= ".$orden." WHERE idcat = ".$item."");
   }
   $bd->close();  
 }elseif($_GET["task"]=='uestado'){
   $bd = new BD;
   $bd->Begin();
-  $ide = !isset($_GET['id_marca']) ? $_GET['estado_idestado'] : $_GET['id_marca'];
+  $ide = !isset($_GET['idcat']) ? $_GET['estado_idestado'] : $_GET['idcat'];
   $ide = is_array($ide) ? implode(',',$ide) : $ide;
-  $usuario = executesql("SELECT * FROM marcas WHERE id_marca IN (".$ide.")");
+  $usuario = executesql("SELECT * FROM categorias WHERE idcat IN (".$ide.")");
   if(!empty($usuario))
   foreach($usuario as $reg => $item)
   if ($item['estado_idestado']==1) {
@@ -159,12 +159,12 @@ function aceptar(){
   }elseif ($item['estado_idestado']==2) {
     $state = 1;
   }
-  $num_afect=$bd->actualiza_("UPDATE marcas SET estado_idestado=".$state." WHERE id_marca=".$ide."");
+  $num_afect=$bd->actualiza_("UPDATE categorias SET estado_idestado=".$state." WHERE idcat=".$ide."");
   echo $state;
   $bd->Commit();
   $bd->close();
 }elseif($_GET["task"]=='finder'){
-   $sql = "SELECT d.*,e.nombre AS estado  FROM marcas d 
+   $sql = "SELECT d.*,e.nombre AS estado  FROM categorias d 
   INNER JOIN estado e ON d.estado_idestado=e.idestado  "; 
     if (isset($_GET['criterio_mostrar'])) $porPagina=$_GET['criterio_mostrar'];
   if(isset($_GET['criterio_usu_per'])){
@@ -184,13 +184,14 @@ function aceptar(){
   $paging->mantenerVar($mantenerVar);
   $paging->porPagina(fn_filtro((int)$porPagina));
   $paging->ejecutar();
-  $paging->pagina_proceso="marcas.php";
+  $paging->pagina_proceso="categorias.php";
 ?>
     <table id="example1" class="table table-bordered table-striped">
       <thead>
         <tr role="row">
           <th class="unafbe" width="20"><input type="checkbox" id="chkDel" class="all"></th>
           <th class="sort  unafbe">Nombre</th> 
+          <th class="sort  unafbe">Destacado</th> 
           <th class="sort cnone" width="80">Imágen</th>
           <th class="sort  "width="70">ESTADO</th>
           <th class="unafbe" width="100">Opciones</th>
@@ -198,17 +199,18 @@ function aceptar(){
       </thead>
       <tbody id="sort">
 <?php while ($detalles = $paging->fetchResultado()): ?>
-        <tr id="order_<?php echo $detalles["id_marca"]; ?>">
-          <td><input type="checkbox" name="chkDel[]" class="chkDel" value="<?php echo $detalles["id_marca"]; ?>" id="id"></td>
+        <tr id="order_<?php echo $detalles["idcat"]; ?>">
+          <td><input type="checkbox" name="chkDel[]" class="chkDel" value="<?php echo $detalles["idcat"]; ?>" id="id"></td>
           <td ><?php echo $detalles["nombre"]; ?></td>
+          <td ><?php  echo ($detalles['destacado'] == 1)?'SI':'NO'; ?></td>
           <td class="cnone">
             <?php if(!empty($detalles["imagen"])){ ?>
-            <img src="<?php echo "files/images/marcas/".$detalles["imagen"]; ?>" alt="<?php echo $detalles["nombre"]; ?>" class="img-responsive">
+            <img src="<?php echo "files/images/categorias/".$detalles["imagen"]; ?>" alt="<?php echo $detalles["nombre"]; ?>" class="img-responsive">
             <?php }else{ echo "Not Image."; } ?>
           </td>                
-          <td class=""><a href="javascript: fn_estado('<?php echo $detalles["id_marca"]; ?>')"><?php echo $detalles["estado"]; ?></a></td>
+          <td class=""><a href="javascript: fn_estado('<?php echo $detalles["idcat"]; ?>')"><?php echo $detalles["estado"]; ?></a></td>
           <td><div class="btn-eai btr text-center">
-              <a href="<?php echo $_SESSION["base_url"].'&task=edit&id_marca='.$detalles["id_marca"]; ?>"><i class="fa fa-edit"></i></a>
+              <a href="<?php echo $_SESSION["base_url"].'&task=edit&idcat='.$detalles["idcat"]; ?>"><i class="fa fa-edit"></i></a>
           </div></td>
         </tr>
 <?php endwhile; ?>
@@ -217,7 +219,7 @@ function aceptar(){
     <div class="pagination"><?php echo $paging->fetchNavegacion(); ?></div>
 <script>
 $(function(){
-  reordenar('marcas.php');
+  reordenar('categorias.php');
   checked();
   sorter();
 });
@@ -252,13 +254,13 @@ $(function(){
     </div>
   </div>
 <script>
-var link = "marca";/*la s final se agrega en js fuctions*/
-var us = "marca";/*sirve para mensaje en ventana eliminar*/
+var link = "categoria";/*la s final se agrega en js fuctions*/
+var us = "categoria";/*sirve para mensaje en ventana eliminar*/
 var l = "o";
 var l2 = "a";/* est+ _ x {e,a,o ,etc}sirve para mensaje en ventana eliminar*/
 var pr = "la";
 var ar = "el";
-var id = "id_marca";
-var mypage = "marcas.php";
+var id = "idcat";
+var mypage = "categorias.php";
 </script>
 <?php } ?>

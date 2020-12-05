@@ -5,28 +5,51 @@ $notimg="img/iconos/imagen.jpg";
 $dir="intranet/files/images/productos/";
 $dir2="intranet/files/files/productos/";
 $title="";$des="";$img="";
-$key="saludable, alimentacion sana, fibra, salud, sano, alimento, nutritivo, snack, fruta, deshidratado, rico, digestivo, dietetico, calorias, bajo en calorias, alimento, fitnes, venta de snack,fruta deshidratada, alimentos saludables, vida sana, manzana deshidratada, piña deshidratada, platano deshidratada, alimento natural, nutritivo, comida saludable, ansiedad, fibra, snack saludables, snack nutritivo, fitnes chiclayo, trujillo, lima, peru";
+$key="Distribuidor de motosierras, motoguadañas, podadoras de altura, motofumigadoras, pulverizadoras manuales y a motor, Agroforestal Nieto chiclayo, trujillo, lima, peru";
 $titulo_h3="";
 
-$tags="select * from productos where estado_idestado=1 ";
-if(!empty($_GET["parametro1"])){
-  $tags.=" and titulo_rewrite='".$_GET["parametro1"]."' ";    
+// $tags="select * from productos where estado_idestado=1 ";
+
+$tags="select p.*, m.nombre as marca,m.nombre_rewrite as marcarew,m.imagen as imgmarca ";
+if(!empty($_GET["parametro1"])){$tags.= ",ca.nombre as categ, ca.nombre_rewrite as categrew ";}
+$tags.=" from productos p  INNER JOIN marcas m ON p.id_marca=m.id_marca";
+if(!empty($_GET["parametro1"])){ $tags.=" INNER JOIN categorias ca ON p.idcat=ca.idcat ";}
+$tags.=" where p.estado_idestado=1  ";
+
+
+
+if(!empty($_GET["parametro2"])){
+  $tags.=" and p.titulo_rewrite='".$_GET["parametro2"]."' ";    
   $detalle=executesql($tags);
   if(!empty($detalle)){ 
     $titulo_h3='<h5 class="amatic bold blanco large-text-left medium-text-left text-center"><a href="productos">Producto</a> / '.$detalle[0]["titulo"].'</h5>';
-    $title="Ventas de Snacks de Frutas Deshidratadas, alimento saludable, rico, fitnes". $detalle[0]["titulo"]." /NAYNUT";
-    $des="Venta de snack de fruta deshidratada. Los más deliciosos snack de frutas deshidratadas, manzana, piña";
+    $title="Ventas de ". $detalle[0]["titulo"]." | Agroforestal Nieto ";
+    $des="Distribuidor de motosierras, motoguadañas, podadoras de altura, motofumigadoras, pulverizadoras manuales y a motor";
     $img=(!empty($detalle[0]["imagen"]))?$dir.$detalle[0]["imagen"]:"";
   }  
+
+}elseif(!empty($_GET["parametro1"])){
+	
+	 $tags.=" and ca.nombre_rewrite='".$_GET["parametro1"]."' GROUP BY p.id_producto ORDER BY p.orden desc ";    
+	$detalle=executesql($tags);
+	if(!empty($detalle)){
+			$titulo_h3= '<h3 class="monset blanco text-left">Categoría: '.$detalle[0]["categ"].'</h3>';
+		$title="Encuentra los mejores  ".$detalle[0]["marca"]." | Agroforestal Nieto ";
+		$des="Encuentra lo mejor solo en Agroforestal Nieto.";
+		$key=$detalle[0]["marca"]." envios a chiclayo,trujillo, lima, todo el peru.";
+		$img=(!empty($detalle[0]["imgmarca"]))?"intranet/files/images/marcas/".$detalle[0]["imgmarca"]:"";
+	}
+	
 }else{
   $titulo_h3='<h5 class="amatic bold blanco large-text-left medium-text-left text-center">Nuestros productos:</h5>';
   $detalle=executesql($tags);
   if(!empty($detalle)){    
-    $title="Ventas de Snacks de Frutas Deshidratadas, alimento saludable, rico, fitnes / NAYNUT - Naturalmente nutritivo";
-    $des="Venta de snack de fruta deshidratada. Los más deliciosos snack de frutas deshidratadas, manzana, piña.";
+    $title="Nuestros productos | Agroforestal Nieto";
+    $des="Distribuidor de motosierras, motoguadañas, podadoras de altura, motofumigadoras, pulverizadoras manuales y a motor";
     $img="";
   }
 }
+
 $meta= array(
   'title' => $title,
   'keywords' => $key,
@@ -40,8 +63,8 @@ include('inc/header.php'); ?>
 </div></div>
 <div class="callout callout-1 <?php echo !empty($_GET["parametro1"])?'':'fondi';?>"><div class="row">      
 <?php 
-if(!empty($_GET["parametro1"])){ //si encuentr directo el producto
-  $sql="select * from productos where estado_idestado=1 and titulo_rewrite='".$_GET["parametro1"]."' ";    
+if(!empty($_GET["parametro2"])){ //si encuentr directo el producto
+  $sql="select * from productos where estado_idestado=1 and titulo_rewrite='".$_GET["parametro2"]."' ";    
   $detalle=executesql($sql);
   if(!empty($detalle)){
     $imgproduct=$img=(!empty($detalle[0]["imagen"]))?$dir.$detalle[0]["imagen"]:$notimg;
@@ -87,6 +110,7 @@ if(!empty($_GET["parametro1"])){ //si encuentr directo el producto
                 <p  class="osans">S/<?php echo $detalle[0]["precio"]; ?></p>
 <?php } ?>
               </div>
+					<!-- 
               <form id ="ruta-<?php echo $detalle[0]["id_producto"]; ?>" class="add" method="POST" action="process_cart/insert.php" accept-charset="UTF-8">       
                   <input type="hidden" name="id"  value="<?php echo $detalle[0]["id_producto"] ?>">
                   <input type="hidden" name="imagen"  value="<?php echo $imgproduct ; ?>">
@@ -96,8 +120,15 @@ if(!empty($_GET["parametro1"])){ //si encuentr directo el producto
                 <input type="number" value="1" min="1" max="100" required onkeypress='javascript:return soloNumeros(event,0);' id="cantidad" name="cantidad" style='width:60px;'>
                 <div class="large-12 columns" style="padding-left:0;margin-bottom:25px;">
                   <button class="osans bold btn botones  hola"></button>
-                </div><!-- l **12 prod-->
+                </div>
               </form>
+					-->
+								<div class="lleva_botones "  >
+										<a href="https://api.whatsapp.com/send?phone=<?php echo $num_wsp;?>&text=<?php echo $texto_cambiado;?>" target="_blank"  class="btn botones btnwsp pulse"> <img src="img/icowsp.png"> Solicitar</a>
+										<a href="tel:<?php echo $num_wsp;?>" target="_blank" class="btn botones pulse"> Llamar</a> 
+								</div>	
+							
+							
                <?php include("inc/compartir_con.php"); ?>
             </div><!-- l6-->
               
@@ -107,11 +138,11 @@ if(!empty($_GET["parametro1"])){ //si encuentr directo el producto
                   <div class="float-left"><img src="img/iconos/llamar-pro.png"></div>
                   <div class="float-right text-left">
                     <blockquote class="gulim bold color-1">CONSÚLTANOS </br>DIRECTAMENTE </br><span>POR ESTE PRODUCTO</span></blockquote>
-                    <h5 class="gulim bold bold" style="color:#060709;">945360531</h5>
+                    <h5 class="gulim bold bold" style="color:#060709;">945250434</h5>
                   </div>
                 </div>
                 <div class="datos-de-envio" style="padding:5px;">
-                  <p class="rel osans"><img src="img/iconos/natural.png" class="abs">Productos 100% naturales</p>
+                  <p class="rel osans"><img src="img/iconos/natural.png" class="abs">Productos 100% confiables</p>
                   <p class="rel osans"><img src="img/iconos/delivery.png" class="abs">Envios a nivel nacional.</p>
                 </div>         
               </div>
@@ -150,11 +181,11 @@ if(!empty($_GET["parametro1"])){ //si encuentr directo el producto
             <div class="float-left"><img src="img/iconos/llamar-pro.png"></div>
             <div class="float-right text-left">
               <blockquote class="gulim bold color-1">CONSÚLTANOS </br>DIRECTAMENTE </br><span>POR ESTE PRODUCTO</span></blockquote>
-              <h5 class="gulim bold bold" style="color:#060709;">945360531</h5>
+              <h5 class="gulim bold bold" style="color:#060709;">945250434</h5>
             </div>
           </div>
           <div class="datos-de-envio" style="padding:5px;">
-            <p class="rel osans"><img src="img/iconos/natural.png" class="abs" style="left:8px;">Productos 100% naturales.</p>
+            <p class="rel osans"><img src="img/iconos/natural.png" class="abs" style="left:8px;">Productos 100% confiables.</p>
             <p class="rel osans"><img src="img/iconos/delivery.png" class="abs">Envios a nivel nacional.</p>
           </div>         
         </div>
@@ -162,7 +193,8 @@ if(!empty($_GET["parametro1"])){ //si encuentr directo el producto
         <p class="osans em  text-center" style="padding:150px 0;">... No se encontro producto.</p>
 <?php }//end detalle producto 
 //product relacionados //acomodar esto a
-$sql="select * from productos where estado_idestado=1 ORDER BY orden DESC " ;
+
+$sql = "SELECT p.*, ca.nombre_rewrite as categrew, m.nombre as  marca  from productos p INNER JOIN  categorias ca ON p.idcat=ca.idcat INNER JOIN marcas m ON p.id_marca=m.id_marca  WHERE p.estado_idestado=1 and m.estado_idestado=1 and ca.estado_idestado=1 ORDER BY p.orden DESC limit 0,9 ";
 $relacionados=executesql($sql);
 if(!empty($relacionados)){ ?>
         <div class="large-12 relacionados columns">
@@ -171,7 +203,7 @@ if(!empty($relacionados)){ ?>
 <?php
 foreach($relacionados as $row){
   $img_pro=!empty($row["imagen"])?$dir.$row["imagen"]:$notimg;
-   $link="productos/".$row["titulo_rewrite"]; ?>                   
+   $link="productos/".$row["categrew"].'/'.$row["titulo_rewrite"]; ?>                   
           <div class="large-4 medium-4 columns minh-pro end">
      <?php include("inc/producto.php");?>
           </div>       
@@ -180,21 +212,85 @@ foreach($relacionados as $row){
 <?php }//si exis relacionados ?>        
         </div><!-- l12 -->         
 <?php //end productos relaciondos
-}else{ //Listado ?>
-  <div class="large-11 large-centered columns">
-<?php $sql = "SELECT * from productos WHERE estado_idestado=1 ORDER BY orden DESC ";
+
+
+// }elseif( !empty($_GET["parametro1"]) || !empty($_GET["parametro2"]) || !empty($_POST["buscar"])){ 
+}elseif( !empty($_GET["parametro1"]) || !empty($_POST["buscar"])){ 
+
+$sql = "SELECT p.*, m.nombre as marca,m.nombre_rewrite as marcarew  "; 
+$sql.= ", ca.nombre as categ, ca.nombre_rewrite as categrew "; // si hay syb_categ
+$sql.=" FROM productos p INNER JOIN marcas m ON p.id_marca=m.id_marca  ";
+$sql.= " INNER JOIN  categorias ca ON p.idcat=ca.idcat  "; // si hay syb_categ
+$sql.=" WHERE  p.estado_idestado=1 and m.estado_idestado=1 and ca.estado_idestado=1 ";
+
+
+  // $sql = "SELECT p.*,c.nombre as marca,c.nombre_rewrite as marcarew,s.nombre as sub,s.nombre_rewrite as subrew FROM productos p INNER JOIN categoria_subcate_productos csp ON csp.id_producto = p.id_producto INNER JOIN marcas c ON csp.id_marca=c.id_marca INNER JOIN submarcas s ON csp.id_sub=s.id_sub  WHERE p.estado_idestado=1 and c.estado_idestado=1  ";
+  
+
+	// if(!empty($_GET["parametro2"])){
+		// $sql.=" and c.nombre_rewrite='".$_GET["parametro1"]."' and s.nombre_rewrite='".$_GET["parametro2"]."'  ";
+	// }else
+		if(!empty($_GET["parametro1"])){
+		$sql.= " and ca.nombre_rewrite='".$_GET["parametro1"]."' GROUP BY p.id_producto  " ;
+	}elseif(!empty($_POST["buscar"])){
+		$sql.= " and ( p.titulo like '%".$_POST["buscar"]."%' or  ca.nombre like '%".$_POST["buscar"]."%' or m.nombre like '%".$_POST["buscar"]."%' ) " ;
+		// $sql.= " and p.titulo like '%".$_POST["buscar"]."%' or  m.nombre like '%".$_POST["buscar"]."%'  " ;  
+	}else{
+		$sql.= "  "; 
+	} 
+	 
+ $sql.= " ORDER BY p.orden DESC ";
+
+// echo $sql;
+
+$exsql = executesql($sql);
+?>
+
+  <div class="large-12  columns">
+<?php 
+
+		if(!empty($exsql)){
+			foreach($exsql as $row){
+      $img_pro = !empty($row["imagen"])?$dir.$row["imagen"]:$notimg;
+      $link="productos/".$row["categrew"].'/'.$row["titulo_rewrite"];
+			
+						
+				for($i=1;$i<10;$i++){
+?>        
+     <div class="large-3  medium-4 small-6 columns text-center minh-pro end"><?php include("inc/producto.php");?></div>    
+<?php	 }
+
+			}
+		}else{ ?>
+    <p class="osans em  text-center color-1" style="padding:100px 0;">No se encontro productos ... </p>
+<?php } ?>
+  </div>
+	
+	
+<?php 
+}else{ // listamos todos ?>
+  <div class="large-12  columns">
+<?php  
+$sql = "SELECT p.*, ca.nombre_rewrite as categrew, m.nombre as  marca  from productos p INNER JOIN  categorias ca ON p.idcat=ca.idcat INNER JOIN marcas m ON p.id_marca=m.id_marca  WHERE p.estado_idestado=1 and m.estado_idestado=1 and ca.estado_idestado=1 ORDER BY p.orden DESC  ";
       $exsql = executesql($sql);
   if(!empty($exsql)){
     foreach($exsql as $row){
       $img_pro = !empty($row["imagen"])?$dir.$row["imagen"]:$notimg;
-      $link="productos/".$row["titulo_rewrite"];
+      $link="productos/".$row["categrew"].'/'.$row["titulo_rewrite"];
+			
+						
+			for($i=1;$i<10;$i++){
 ?>        
-     <div class="large-4  medium-4 small-6 columns text-center minh-pro end"><?php include("inc/producto.php");?></div>    
-<?php }}else{ ?>
+     <div class="large-3  medium-4 small-6 columns text-center minh-pro end"><?php include("inc/producto.php");?></div>    
+<?php }
+
+		}}else{ ?>
     <p class="osans em  text-center color-1" style="padding:100px 0;">No se encontro productos ... </p>
 <?php } ?>
   </div>
-<?php } ?>
+	
+<?php } // if genreal ?>
+
 </div></div>        
 </main> 
 <?php include('inc/footer.php'); ?>

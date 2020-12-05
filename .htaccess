@@ -17,7 +17,12 @@ Options All -Indexes
   RewriteRule ^([^/]+)$ $1.html [NC]
 
   RewriteRule ^([^/]+)\.html$ $1.php [L]
+  
+	#RewriteRule ^productos/([^/]+) productos.php?parametro1=$1 [NC]
+
+	RewriteRule ^productos/([^/]+)/([^/]+) productos.php?parametro1=$1&parametro2=$2 [NC]
   RewriteRule ^productos/([^/]+) productos.php?parametro1=$1 [NC]
+	
   
   RewriteRule ^inicio index.php [NC]
   RewriteRule ^perfil/([^/]+) perfil.php?task=$1 [NC]

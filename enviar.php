@@ -8,11 +8,11 @@
 @$mensaje   = utf8_decode(addslashes($_POST['comments']));
  
 //Preparamos el mensaje de contacto
-$cabeceras  = "From: Mensaje desde la web. Naynut <$email> \n" //La persona que envia el correo
+$cabeceras  = "From: Mensaje desde la web. AgroNieto <$email> \n" //La persona que envia el correo
  . "Reply-To: $email\n";
 $cabeceras .= 'MIME-Version: 1.0' . "\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
-$email_to   = "info@naynut.com"; 
+$email_to   = "ventas@agronieto.com"; 
 $contenido  = "<p>$nombre ha enviado un mensaje desde la web </p>"
 . "<p>"
 . "Nombre: ".$nombre."<br />"
