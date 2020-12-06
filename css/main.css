@@ -39,7 +39,7 @@ background: transparent;
     /* min-height: 160px; */
     border-color: transparent;
     border: none;		
-		
+		background:#fff;
 		}
 
 header .franja2 .menu_bar{padding:0;margin-top:10px;}
