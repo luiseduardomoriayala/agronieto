@@ -12,11 +12,11 @@ h1,h3,h4,h5,h6,
 figure,
 blockquote{ margin:0 !important;padding:0; }
 blockquote{ border:0; }
-h1{ font-size:45px !important;letter-spacing:-1px;line-height:51px; }
-h2{ font-size:42px !important;letter-spacing:-1px;margin-bottom:7px;line-height:46px;}
-h3{font-size:50px;line-height:55px;}
-h4{ font-size:90px;line-height:95px;letter-spacing:-1px;}
-h5{ font-size:40px;line-height:40px;letter-spacing:1px;}
+h1{ font-size:28px !important;letter-spacing:-1px;line-height:33px; }
+h2{ font-size:25px !important;letter-spacing:-1px;margin-bottom:7px;line-height:30px;}
+h3{font-size:30px;line-height:45px;}
+h4{ font-size:40px;line-height:55px;letter-spacing:-1px;}
+h5{ font-size:30px;line-height:35px;letter-spacing:1px;}
 label,
 li{font-size:17px;letter-spacing:0.3px; }
 p{font-size:17px;line-height:24px;margin:0; }
@@ -50,7 +50,7 @@ header .franja2 .menu_bar{padding:0;margin-top:10px;}
 .cero-registro{padding:180px 0;} 
 nav ul {margin: 0;}
 nav > ul > li{ position:relative;display:inline-block;vertical-align:top;} 
-nav > ul > li > a{display:inline-block;font-size:23px;color:#1E3032;position:relative;letter-spacing:0px;text-align:center;}
+nav > ul > li > a{display:inline-block;font-size:15px;color:#1E3032;position:relative;letter-spacing:0px;text-align:center;}
 nav > ul > li:hover > a,
 nav > ul > li.active-menu > a{color:#E98B1C;}
 
@@ -78,8 +78,8 @@ iframe{ display:block; }
 /* Fuentes */
 .arial{font-family:Arial,Helvetica,sans-serif;font-weight:normal;font-style:normal; }
 .osans{font-family:'OpenSans' !important;}
-.gulim{font-family:'gulimregular'!important;}
-.amatic{font-family:'amatic_scregular'!important;}
+/* .gulim{font-family:'gulimregular'!important;} */
+/* .amatic{font-family:'amatic_scregular'!important;} */
 
 /* Config */
 .color-1{ color:#1E3032 !important;}
@@ -893,7 +893,7 @@ nav > ul > li > a{ padding:5px 11px;}
 
 /*Sub Menu*/
 nav li ul{display:none;position:absolute;} 
-nav li ul li a{background:#fff;padding:7px 12px;font-size: 21px;} 
+nav li ul li a{background:#fff;padding:7px 12px;font-size:15.5px;text-align:left;} 
 nav li:hover > ul{display:block;}
 nav li.sub_personal:hover > ul{display:block;    width: auto; padding: 5px 20px;}
 nav li:hover > ul a{display:block;}
