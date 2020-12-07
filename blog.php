@@ -9,7 +9,7 @@ $meta= array(
 include('inc/header.php');?>
 <main id="prensa" class="margin-interno">
 <div class="callout-f"><div class="row">
-  <h5 class="amatic bold blanco text-center">Publicaciones de interés</h5>
+  <h5 class="gulim bold blanco text-center">Publicaciones de interés</h5>
 </div></div>
 <div class="callout callout-1"><div class="row">
   <div class="large-12 columns">

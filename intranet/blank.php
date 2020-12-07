@@ -7,6 +7,7 @@ if(isset($_GET["page"]) && $_GET["page"]!=""){
     case "banners":
     case "productos":
     case "categorias":
+    case "subcategorias":
     case "marcas":
     case "galeria_productos":
     case "pedidos":
@@ -30,6 +31,7 @@ $tab=array(
     ), 
   "Productos"=>array(
        "Categorías"   => array(url=>"index.php?page=categorias"),
+       "Subcategorias"   => array(url=>"index.php?page=subcategorias"),
        "Marcas"   => array(url=>"index.php?page=marcas"),
        "productos"   => array(url=>"index.php?page=productos")
             ),

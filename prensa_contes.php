@@ -18,8 +18,8 @@ include('inc/header.php');
 <?php if(!empty($_GET["rewrite1"])){ ?>
 <div id="prensa-cont" class="margin-interno">
   <div class="callout callout-f"><div class="row">
-    <h5 class="amatic bold blanco large-6 medium-6 small-6 columns large-text-left text-center" style="padding-top:8px;">BLOG:</h5>  
-    <a href="blog" class="large-6 columns osans btn text-right">RETORNAR</a>
+    <h5 class="gulim bold blanco large-6 medium-6 small-6 columns large-text-left text-center" style="padding-top:8px;">BLOG:</h5>  
+    <a href="blog" class="large-6 columns gulim btn text-right">RETORNAR</a>
   </div></div> 
   
   <div class="callout callout-2"><div class="row">				
@@ -36,7 +36,7 @@ if(!empty($rs)){
       <div class="large-9 medium-10 large-centered medium-centered columns text-center" itemscope itemtype="http://schema.org/Article" >
         <article>
           <img src="<?php echo $img;?>" class="img-1" alt="<?php echo $row["titulo"];?>" itemprop="image">
-          <h1 class="olig titulo color-1 text-left" ><?php echo $row['titulo']; ?></h1>
+          <h1 class="gulim titulo color-1 text-left" ><?php echo $row['titulo']; ?></h1>
         </article>
         <aside>
           <div  id="twete" class="pd">

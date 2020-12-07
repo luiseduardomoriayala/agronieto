@@ -18,7 +18,7 @@ if($_GET["task"]=='neworden'){
   $urlrewrite=armarurlrewrite($_POST["titulo"]);
   $urlrewrite=armarurlrewrite($urlrewrite,1,"productos","id_producto","titulo_rewrite",$where);
   
-  $campos=array('idcat','id_marca',"titulo",array("titulo_rewrite",$urlrewrite),"stock","tipo","igv","precio","costo_promo","garantia","link","puntuales","especificaciones","detalle","estado_idestado");
+  $campos=array('idcat','idsub','id_marca',"titulo",array("titulo_rewrite",$urlrewrite),"stock","tipo","igv","precio","costo_promo","garantia","link","puntuales","especificaciones","detalle","estado_idestado");
   // if(isset($_POST['id_marca'])) $campos = array_merge($campos,array('id_marca'));
   $dir  = "files/images/productos/";
   $dir2 = "files/files/productos/";
@@ -82,12 +82,33 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
 					  </div>
 					</div>
 					
+							
 					<div class="form-group">
-					  <label for="inputEmail3" class="col-sm-2 control-label">Categoría</label>
-					  <div class="col-sm-6">
-						<?php crearselect("idcat","select idcat, nombre from categorias where estado_idestado=1 order by orden desc",'class="form-control"',$data_producto["idcat"]," -- seleccione --"); ?>
-					  </div>
+					  <label for="inputEmail3" class="col-sm-2 control-label">CATEGORÍA</label>
+						<div class="col-sm-3 criterio_buscar">
+									<?php crearselect("idcat", "select idcat,nombre from categorias where estado_idestado=1 order by nombre asc", 'class="form-control" requerid  onchange="javascript:display(\'productos.php\',this.value,\'cargar_subcategorias\',\'idsub\')"', $data_producto["idcat"], "-- categorias --"); ?>
+						</div>
 					</div>
+							
+					<div class="form-group">
+					  <label for="inputEmail3" class="col-sm-2 control-label">SUB_CATEGORÍA</label>
+					  <div class="col-sm-6">
+							<?php if($task_=='edit'){  $sql="select idsub,nombre from subcategorias WHERE idcat='".$data_producto["idcat"]."' "; ?>
+								<select name="idsub" id="idsub" class="form-control" >
+									<option value="" >-- subcateg. --</option>
+									<?php 
+											$listaprov=executesql($sql);
+											foreach($listaprov as $data){ ?>
+										<option value="<?php echo $data['idsub']; ?>" <?php echo ($data['idsub']==$data_producto["idsub"])?'selected':'';?> > <?php echo $data['nombre']?></option>
+											<?php } ?>
+								</select>
+							
+							<?php }else{ ?>
+							<select name="idsub" id="idsub" class="form-control" ><option value="" selected="selected">-- subcateg. --</option></select>
+							<?php } ?>
+						</div>
+					</div>      
+
 					
 					<div class="form-group">
 					  <label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
@@ -260,11 +281,14 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
 
 }elseif($_GET["task"]=='finder'){
 
-  $sql = "SELECT p.*, e.nombre as estado FROM productos p INNER JOIN estado e ON p.estado_idestado=e.idestado  ";
+  $sql = "SELECT p.*, c.nombre as categ, s.nombre as subcateg, e.nombre as estado FROM productos p INNER JOIN estado e ON p.estado_idestado=e.idestado 
+INNER JOIN categorias c ON p.idcat=c.idcat  
+LEFT JOIN subcategorias s ON p.idsub=s.idsub  
+  ";
   if (isset($_GET['criterio_mostrar'])) $porPagina=$_GET['criterio_mostrar'];
   if(isset($_GET['criterio_usu_per']) && !empty($_GET['criterio_usu_per'])){
     $stringlike=fn_filtro(substr($_GET['criterio_usu_per'], 0, 16));
-    $sql.= " where p.titulo LIKE '%".$stringlike."%' or t.nombre LIKE '%".$stringlike."%' or c.nombre LIKE '%".$stringlike."%' or s.nombre LIKE '%".$stringlike."%'";
+    $sql.= " where p.titulo LIKE '%".$stringlike."%' or c.nombre LIKE '%".$stringlike."%' or s.nombre LIKE '%".$stringlike."%' ";
   }
   if(isset($_GET['criterio_ordenar_por'])) $sql.= sprintf(" order by %s %s", fn_filtro($_GET['criterio_ordenar_por']), fn_filtro($_GET['criterio_orden']));
   $sql.= " ORDER BY p.orden DESC";
@@ -285,6 +309,8 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
               <thead>
                 <tr role="row">
                   <th class="unafbe" width="20"><input type="checkbox" id="chkDel" class="all"></th>
+                  <th class="sort">CATEG</th>
+                  <th class="sort">SUBCATEG</th>
                   <th class="sort">TITULO</th>
                   <th class="sort">Imagen</th>
                   <th class="sort">Precio</th>
@@ -297,6 +323,8 @@ create_input("hidden","nomparenttab",$_GET["parenttab"],"",$table,"");
 <?php while ($detalles = $paging->fetchResultado()): ?>
                 <tr id="order_<?php echo $detalles["id_producto"]; ?>">
                   <td><input type="checkbox" name="chkDel[]" class="chkDel" value="<?php echo $detalles["id_producto"]; ?>"></td>
+                  <td><?php echo $detalles["categ"]; ?></td>
+                  <td><?php echo $detalles["subcateg"]; ?></td>
                   <td><?php echo $detalles["titulo"]; ?></td>
                   <td class="cnone">
                     <?php if(!empty($detalles["imagen"])){ ?>

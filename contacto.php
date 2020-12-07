@@ -9,7 +9,7 @@ $meta= array(
 <main id="contacto" class="margin-interno">
 <div class="callout banners"><div class="fondo fondo2 banner-contacto"></div></div>
 <div class="callout-f"><div class="row">
-  <h5 class="amatic bold blanco text-center">Contáctenos</h5>
+  <h5 class="gulim bold blanco text-center">Contáctenos</h5>
 </div></div>
 <div class="callout callout-2 text-center"><div class="row">
   <div class="large-10 large-centered medium-10 medium-centered columns">
@@ -21,7 +21,7 @@ $meta= array(
 		</div>
   </div>
   <div class="large-8 medium-8 columns text-left">
-    <h3 class="amatic bold color-1">Formulario de contacto:</h3>
+    <h3 class="gulim bold color-1">Formulario de contacto:</h3>
     <form  action="enviar.php" method="post" enctype="multipart/form-data">
       <fieldset>
         <div class="row">

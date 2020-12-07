@@ -22,6 +22,7 @@ Options All -Indexes
   
 	#RewriteRule ^productos/([^/]+) productos.php?parametro1=$1 [NC]
 
+	RewriteRule ^productos/([^/]+)/([^/]+)/([^/]+) productos.php?parametro1=$1&parametro2=$2&parametro3=$3 [NC]
 	RewriteRule ^productos/([^/]+)/([^/]+) productos.php?parametro1=$1&parametro2=$2 [NC]
   RewriteRule ^productos/([^/]+) productos.php?parametro1=$1 [NC]
 	

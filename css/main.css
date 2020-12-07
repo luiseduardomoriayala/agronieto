@@ -78,7 +78,7 @@ iframe{ display:block; }
 /* Fuentes */
 .arial{font-family:Arial,Helvetica,sans-serif;font-weight:normal;font-style:normal; }
 .osans{font-family:'OpenSans' !important;}
-/* .gulim{font-family:'gulimregular'!important;} */
+.gulim{font-family:'gulimregular'!important;}
 /* .amatic{font-family:'amatic_scregular'!important;} */
 
 /* Config */
@@ -121,7 +121,7 @@ iframe{ display:block; }
 
 .mascara{ width:100%;height:100%;background-color:rgba(24,24,24,0.3);zoom:1 !important; }
 .banners  .texto{margin-top:270px;}
-.banners  p{font-size:90px !important;line-height:100px;padding-bottom:8px;z-index:9;color:#fff;text-shadow: 2px 4px 3px rgba(0,0,0,0.8);}
+.banners  p{font-size:50px !important;line-height:60px;padding-bottom:8px;z-index:9;color:#fff;text-shadow: 2px 4px 3px rgba(0,0,0,0.8);}
 
 
 .banners .fondo{ height:590px;}
@@ -276,7 +276,7 @@ iframe{ display:block; }
 
 .minh-pro{margin-bottom:70px;padding:0 20px;}
 .producto{padding:8px;background:#fff;border-radius:8px;position:relative;-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);}
-.producto .title-pro{height:68px;position:relative;}
+.producto .title-pro{height:77px;position:relative;}
 .producto .descrp{margin-top:8px;border-top:1px dotted #ccc;}
 .producto figure{height:230px;position:relative;}
 .producto figure img{height:230px;}
@@ -284,8 +284,9 @@ iframe{ display:block; }
 .producto p {padding:1px 10px 2px!important;font-size:14px!important;line-height:18px;}
 .producto blockquote {font-size:17px;}
 .producto blockquote big{color:#1E3032;font-weight:bold;}
-.producto:hover{background:#eee;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;}
-/* .producto:hover h2, .producto:hover blockquote, .producto:hover blockquote big{color:#fff!important;} */
+
+.producto:hover{background:#E98B1C;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;}
+.producto:hover h2, .producto:hover p, .producto:hover blockquote, .producto:hover blockquote big{color:#fff!important;}
 .producto:hover h2{border-top:1px dotted #fff;}
 .producto:hover img{-webkit-transform:scale(0.95);transform:scale(0.95);-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;}
 .producto:hover button{background:#1E3032;color:#fff;-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;}
@@ -337,7 +338,7 @@ iframe{ display:block; }
 #portada .callout-3{background-image:url(../img/venta-de-fruta-deshidratada.jpg);padding:180px 0;}
 #portada .callout-3 h1{z-index:2;font-size: 90px!important;line-height: 95px;}
 #portada .callout-4{background-image:url(../img/fondo.jpg);padding:180px 0;}
-#portada .callout-4 h4{text-shadow: 2px 4px 3px rgba(0,0,0,0.8);font-size:60px!important;line-height:65px;}
+#portada .callout-4 h4{text-shadow: 2px 4px 3px rgba(0,0,0,0.8);font-size:38px!important;line-height:45px;}
 #portada .callout-5{background:#fefefe;padding:80px 0;}
 #portada .callout-5 .fondores {background-color: #f7f7f7;}
 #portada .callout-5 figure {height: 336px;margin-bottom:15px!important;}
@@ -353,8 +354,8 @@ iframe{ display:block; }
 
 
 .redes-sociales{margin:25px 0;}
-#categ  h1{font-size:45px!important;line-height:48px;padding:5px 0 14px;color:#1E3032;font-weight:800;}
-#categ  h4{font-size:48px;line-height:52px;padding:8px 0 14px;color:#1E3032;}
+#categ  h1{font-size:23px!important;line-height:25px;padding:5px 0 14px;color:#1E3032;font-weight:800;}
+#categ  h4{font-size:22px;line-height:25px;padding:8px 0 14px;color:#1E3032;}
 #categ .lSSlideOuter{position:relative;padding:0 20px;}
 #categ  .lSSlideWrapper{position:initial;}
 #categ .cero{padding:0;}
@@ -365,7 +366,7 @@ iframe{ display:block; }
 #categ .callout-1 h3{font-size:26px!important;padding:20px 15px 50px;color:#1E3032;}
 #categ .llamar{background:url(../img/iconos/fondo-llamar.png);padding:30px 25px;overflow:hidden;margin-bottom:25px;}
 #categ .llamar blockquote{font-size:20px;line-height:20px;padding:0;}
-#categ .llamar h5{font-size:30px;line-height:33px;}
+#categ .llamar h5{font-size:24px;line-height:27px;}
 #categ .fotos{background:#fff;padding:15px;margin-bottom:10px;}
 #categ .foto-principal figure{height:295px;position:relative;}
 #categ .foto-principal figure img{max-height:295px;}
@@ -409,7 +410,7 @@ iframe{ display:block; }
 .callout-f{background:#48A906;padding:20px 15px;}
 /* .callout-f{background:url(../img/1.png) no-repeat;padding:20px 15px;} */
 .callout-f h3{font-size:20px;line-height:inherit;}
-.callout-f h5{font-size:34px;line-height:34px!important;}
+.callout-f h5{font-size:20px;line-height:23px!important;}
 .tacho{height:20px;}
 #cesta .callout-1{background:#fff;padding:50px 0 80px;}
 #cesta .callout-1 blockquote {font-size:20px;line-height:21px;}
@@ -443,7 +444,7 @@ iframe{ display:block; }
 
 /*Contacto*/
 #contacto  h1{font-size:26px!important;}
-#contacto  h3{font-size:40px;line-height:45px;padding-bottom:20px;}
+#contacto  h3{font-size:23px;line-height:27px;padding-bottom:20px;}
 #contacto p{font-size:16px; padding-bottom:20px;color:#3C3C3C;}
 #contacto figure{padding:59px 0 0; }
 /* #contacto .callout-2{background:#EAEBE9;padding:30px 0 70px;} */
@@ -920,7 +921,7 @@ footer .large-4 + .large-4{ width:30.33333%; }
 }
 @media only screen and (min-width:67em){  
 .producto{min-height:462px;}
-.producto h2{font-size:23px!important;line-height:25px;}
+.producto h2{font-size:17px!important;line-height:21px;}
 }
 @media only screen and (min-width: 71.2em) {  
 #perfil .callout-1 .menu_perfil.large-2{width:20%;}

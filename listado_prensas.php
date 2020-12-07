@@ -21,7 +21,7 @@ $meses=array('Jan'=>'Enero','Feb'=>'Febrero','Mar'=>'Marzo','Apr'=>'Abril','May'
 $fecha= strtr(date('\<\s\p\a\n\>d\<\/\s\p\a\n\> M Y',strtotime($detalles['fecha_registro'])),$meses);
 
  ?>    
-      <div class="large-6 medium-6 columns end pd" >
+      <div class="large-6 gulim medium-6 columns end pd" >
         <a href="<?php echo $url; ?>">
           <div  class="fondores">
             <figure>
@@ -33,7 +33,7 @@ $fecha= strtr(date('\<\s\p\a\n\>d\<\/\s\p\a\n\> M Y',strtotime($detalles['fecha_
           </div>
           <div class="fii">
             <div class="float-left">
-              <h2 class="olig"><?php echo short_name($detalles['titulo'],100); ?></h2>
+              <h2 class="gulim"><?php echo short_name($detalles['titulo'],100); ?></h2>
               <a href="<?php echo $url; ?>" class="btn botones"><strong> Leer</strong> contenido</a>             
             </div> 
           </div>
