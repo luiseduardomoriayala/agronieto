@@ -41,7 +41,7 @@
 	</div>      
 	<div class="creditos"><div class="row">
     <div class="large-12 medium-12 columns">
-      <span class="float-left" style=""> © 2021 Agroforestales Nieto. Todos los derechos reservados.</span>
+      <span class="float-left" style=""> © 2021 Agroforestal Nieto. Todos los derechos reservados.</span>
       <span class="float-right" style=""> Desarrollo: <a  class="" href="https://www.tuweb7.com" target="_blank"><img src="img/iconos/by.png"></a></span>
     </div>	
   </div></div>
