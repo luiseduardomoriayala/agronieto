@@ -779,7 +779,9 @@ footer .row > div{ padding-bottom:20px; }
 #perfil #prensa .large-6{width:50%;}
 #prensa-cont .img-1{margin-bottom:0;}
 }
- @media only screen and (max-width: 40em){ /*small*/
+
+
+@media only screen and (max-width: 40em){ /*small*/
 .ocultar{display:none !important;}
 .banners h1 {margin-top: 113px !important;font-size: 30px !important; line-height:34px;}
 .banners .pleft {padding-left: 0;}
@@ -787,6 +789,9 @@ footer .row > div{ padding-bottom:20px; }
 .position-left { width: 255px;
     -ms-transform: translateX(-255px);
     transform: translateX(-255px);}
+
+
+#menucateg{display:none;}
 
 #portada .callout-1 .large-6 .img-es{margin-top: -30px;}
 #portada .fb_movi{display:block;}
