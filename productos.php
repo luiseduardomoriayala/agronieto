@@ -170,7 +170,7 @@ $sql.=" where p.estado_idestado=1 and c.estado_idestado=1 and s.estado_idestado=
                   <div class="float-left"><img src="img/iconos/llamar-pro.png"></div>
                   <div class="float-right text-left">
                     <blockquote class="gulim bold color-1">CONSÚLTANOS </br>DIRECTAMENTE </br><span>POR ESTE PRODUCTO</span></blockquote>
-                    <h5 class="gulim bold bold" style="color:#060709;">945250434</h5>
+                    <h5 class="gulim bold bold" style="color:#060709;">950918773</h5>
                   </div>
                 </div>
                 <div class="datos-de-envio" style="padding:5px;">
@@ -213,7 +213,7 @@ $sql.=" where p.estado_idestado=1 and c.estado_idestado=1 and s.estado_idestado=
             <div class="float-left"><img src="img/iconos/llamar-pro.png"></div>
             <div class="float-right text-left">
               <blockquote class="gulim bold color-1">CONSÚLTANOS </br>DIRECTAMENTE </br><span>POR ESTE PRODUCTO</span></blockquote>
-              <h5 class="gulim bold bold" style="color:#060709;">945250434</h5>
+              <h5 class="gulim bold bold" style="color:#060709;">950918773</h5>
             </div>
           </div>
           <div class="datos-de-envio" style="padding:5px;">

@@ -1,7 +1,7 @@
 
 <div class="ocultarwsp">
-  <a style="position: absolute;bottom:0;z-index:999;width:50%;letter-spacing:1px;font-size:15px;text-align:center;background:#49CD60;padding:10px;margin:6px 0 0;color:white;" href="https://api.whatsapp.com/send?phone=51945250434&text=<?php echo $texto_cambiado;?>" target="_blank"><strong>WHATSAPP</strong></a>
-  <a style="position:absolute;bottom:0;left:50%;z-index:999;letter-spacing:1px;font-size:15px;text-align:center;width:50%;background:#1ea7dd;padding:10px;color:white;margin:6px 0 0;" href="tel:+51945250434"><strong>LLAMAR</strong></a>
+  <a style="position: absolute;bottom:0;z-index:999;width:50%;letter-spacing:1px;font-size:15px;text-align:center;background:#49CD60;padding:10px;margin:6px 0 0;color:white;" href="https://api.whatsapp.com/send?phone=51950918773&text=<?php echo $texto_cambiado;?>" target="_blank"><strong>WHATSAPP</strong></a>
+  <a style="position:absolute;bottom:0;left:50%;z-index:999;letter-spacing:1px;font-size:15px;text-align:center;width:50%;background:#1ea7dd;padding:10px;color:white;margin:6px 0 0;" href="tel:+51950918773"><strong>LLAMAR</strong></a>
 </div>
 
 <footer class="salsa">
@@ -25,9 +25,9 @@
 		
 		<div class="mi-altura large-3 medium-3 columns p-top">
       <p>Contáctanos:</br></p>
-      <p class="bold"><img src="img/iconos/cel_movi.png" style="padding-right:7px;">+51945250434</p>      
-      <p class="bold"><img src="img/iconos/was.png" style="padding-right:7px;">+51945250434</p>      
-      <p><a href="mailto:ventas@naynut.com" target="_blank"><span class="color-2 bold">ventas@agronieto.com</span></a></p>
+      <p class="bold"><img src="img/iconos/cel_movi.png" style="padding-right:7px;">+51 950918773</p>      
+      <p class="bold"><img src="img/iconos/was.png" style="padding-right:7px;">+51 946877484</p>      
+      <p><a href="mailto: nietocomercio@hotmail.com" target="_blank"><span class="color-2 bold"> nietocomercio@hotmail.com |  agroforestalnieto2019@gmail.com</span></a></p>
 		</div>
 		<div class="mi-altura large-3 medium-3 sociales columns p-top">
       <a href="blog"><p class="osans">* Blog</p></a>

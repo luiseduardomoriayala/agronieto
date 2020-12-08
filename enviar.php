@@ -12,7 +12,7 @@ $cabeceras  = "From: Mensaje desde la web. AgroNieto <$email> \n" //La persona q
  . "Reply-To: $email\n";
 $cabeceras .= 'MIME-Version: 1.0' . "\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
-$email_to   = "ventas@agronieto.com"; 
+$email_to   = "nietocomercio@hotmail.com"; 
 $contenido  = "<p>$nombre ha enviado un mensaje desde la web </p>"
 . "<p>"
 . "Nombre: ".$nombre."<br />"

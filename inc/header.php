@@ -159,7 +159,7 @@ if(empty($_SESSION["suscritos"]["id_suscrito"])){ ?>
 							<input autocomplete="off" class="form-control" type="text" name="buscar" required placeholder="Buscar ..">
 						</fieldset></form>
 					</div></div>
-					<li class="sinn" ><a href=""><img src="img/iconos/tel2020.png" style="padding-right:7px;">945250434 | 945250434</a></li>      
+					<li class="sinn" ><a href=""><img src="img/iconos/tel2020.png" style="padding-right:7px;">950918773 - 946877484</a></li>      
 					<!--
 					-->						
 			</div>

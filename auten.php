@@ -4,15 +4,15 @@ include_once("intranet/class/functions.php");
 include_once("intranet/class/class.bd.php"); 
 include_once("intranet/class/PHPPaging.lib.php");
 $url_completa = url_completa();
-$url = 'https://'.$_SERVER['SERVER_NAME'].''.( ($_SERVER['SERVER_NAME'] == 'localhost') ? '/mori/tuweb7/w2020/agronieto/' : '' ); 
+$url = 'https://'.$_SERVER['SERVER_NAME'].''.( ($_SERVER['SERVER_NAME'] == 'localhost') ? '/mori/tuweb7/w2020/agronieto/' : '/' ); 
 
 $dir="intranet/files/images/productos/";
 $dir2="intranet/files/files/productos/";
 
 /*Whats - Llamar*/
 /*Whats - Llamar*/
-$num_cel='51945250434';
-$num_wsp='51945250434';
+$num_cel='51950918773';
+$num_wsp='51950918773';
 
 $host3=$_SERVER["HTTP_HOST"];$url3=$_SERVER["REQUEST_URI"];
 $fin='http://'.$host3.$url3;
