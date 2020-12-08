@@ -7,10 +7,16 @@
 
   
  
+  // private $host='localhost';
+	// private $database = 'tuweb7_agronieto';
+	// private $user = 'tuweb7_lds';
+	// private $pass = 'Mapa19%%%%';
+
+
   private $host='localhost';
-	private $database = 'tuweb7_agronieto';
-	private $user = 'tuweb7_lds';
-	private $pass = 'Mapa19%%%%';
+	private $database = 'agroniet_bd2021';
+	private $user = 'agroniet_lds';
+	private $pass = 'Lds2019$$';
 
 
   

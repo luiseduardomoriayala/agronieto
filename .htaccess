@@ -5,7 +5,7 @@ Options All -Indexes
   RewriteEngine on
   RewriteCond %{SERVER_PORT} 80
 
-  #RewriteRule ^(.*)$ https://www.agronieto.com/$1 [R,L]
+  RewriteRule ^(.*)$ https://www.agronieto.com/$1 [R,L]
   
   #RewriteCond %{HTTP_HOST} ^agronieto.com [NC]
   #RewriteRule ^ http://www.agronieto.com%{REQUEST_URI} [L,R=301]

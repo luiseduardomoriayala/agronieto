@@ -4,7 +4,7 @@ include_once("intranet/class/functions.php");
 include_once("intranet/class/class.bd.php"); 
 include_once("intranet/class/PHPPaging.lib.php");
 $url_completa = url_completa();
-$url = 'https://'.$_SERVER['SERVER_NAME'].''.( ($_SERVER['SERVER_NAME'] == 'localhost') ? '/mori/tuweb7/w2020/agronieto/' : '/agronieto/' ); 
+$url = 'https://'.$_SERVER['SERVER_NAME'].''.( ($_SERVER['SERVER_NAME'] == 'localhost') ? '/mori/tuweb7/w2020/agronieto/' : '' ); 
 
 $dir="intranet/files/images/productos/";
 $dir2="intranet/files/files/productos/";
