@@ -16,7 +16,7 @@ $meta= array(
     <p class="osans">Si desea obtener más ventasrmación sobre nuestros productos, puede enviarnos un mensaje mediante nuestro formulario o mediante nuestros datos de contacto.</p>
     <div class="datos">
      <p class="osans"><span><img src="img/iconos/tele-con.png"></span>Llámanos </br> 950 918 773 - 946 877 484 </br></p>
-     <p class="osans"><a href="mailto:nietocomercio@hotmail.com"><span><img src="img/iconos/correo-con.png"></span>Envíenos un correo </br>nietocomercio@hotmail.com |  agroforestalnieto2019@gmail.com</a></p>
+     <p class="osans"><a href="mailto:nietocomercio@hotmail.com"><span><img src="img/iconos/correo-con.png"></span>nietocomercio@hotmail.com </br>  agroforestalnieto2019@gmail.com</a></p>
 		 
 		</div>
   </div>

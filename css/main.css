@@ -773,6 +773,7 @@ footer .row > div{ padding-bottom:20px; }
 #cesta .prodcesta [type="number"] {width: 75%;}
 #cesta .callout-1 .padtop {padding-bottom:35px;}
 }
+
 @media screen and (max-width: 41em){ 
 #categ .foto-principal figure{height:180px;}
 #categ .foto-principal figure img{max-height:180px;}

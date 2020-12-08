@@ -23,13 +23,13 @@
       <p class="osans dire">Envios a todo el Perú. </br>Estamos en Chiclayo</p>
 		</div>	
 		
-		<div class="mi-altura large-3 medium-3 columns p-top">
+		<div class="mi-altura large-4 medium-4 columns p-top">
       <p>Contáctanos:</br></p>
       <p class="bold"><img src="img/iconos/cel_movi.png" style="padding-right:7px;">+51 950918773</p>      
-      <p class="bold"><img src="img/iconos/was.png" style="padding-right:7px;">+51 946877484</p>      
-      <p><a href="mailto: nietocomercio@hotmail.com" target="_blank"><span class="color-2 bold"> nietocomercio@hotmail.com |  agroforestalnieto2019@gmail.com</span></a></p>
+      <p class="bold"><img src="img/iconos/was.png" style="padding-right:7px;">+51 950918773</p>      
+      <p><a href="mailto: nietocomercio@hotmail.com" target="_blank"><span class="color-2 bold"> nietocomercio@hotmail.com </br>  agroforestalnieto2019@gmail.com</span></a></p>
 		</div>
-		<div class="mi-altura large-3 medium-3 sociales columns p-top">
+		<div class="mi-altura large-2 medium-2 sociales columns p-top">
       <a href="blog"><p class="osans">* Blog</p></a>
       <span style="font-size:14px;display:block;padding-bottom:10px;">Síguenos en:</span>
       <li><a href="https://www.facebook.com/agroforestalnietoeirl/" target="_blank"><img src="img/iconos/fb.png"></a></li>
